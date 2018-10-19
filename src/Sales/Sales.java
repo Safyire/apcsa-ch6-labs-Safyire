@@ -57,8 +57,7 @@ public class Sales {
                 " with " + sales[indexOfMin(sales)] + " sales.");
     }
 
-    public static double average(int[] arr) throws IllegalStateException
-    {
+    public static double average(int[] arr) throws IllegalStateException {
         //compute and return the average of arr
         if (arr.length < 1) {
             throw new IllegalStateException("arr length cannot be less than 1!");
