@@ -11,8 +11,7 @@ package Shopping;
 
 import java.text.NumberFormat;
 
-public class Item
-{
+public class Item {
     private String name;
     private double price;
     private int quantity;
@@ -24,8 +23,7 @@ public class Item
      * @param itemPrice
      * @param numPurchased
      */
-    public Item (String itemName, double itemPrice, int numPurchased)
-    {
+    public Item (String itemName, double itemPrice, int numPurchased) {
         name = itemName;
         price = itemPrice;
         quantity = numPurchased;
@@ -35,8 +33,7 @@ public class Item
      *
      * @return a String withe the information about the item
      */
-    public String toString ()
-    {
+    public String toString () {
         NumberFormat fmt = NumberFormat.getCurrencyInstance();
 
         return (name + "\t" + fmt.format(price) + "\t" + quantity + "\t"
@@ -47,8 +44,7 @@ public class Item
      *
      * @return the unit price of the item
      */
-    public double getPrice()
-    {
+    public double getPrice() {
         return price;
     }
 
@@ -56,8 +52,7 @@ public class Item
      *
      * @return the name of the item
      */
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
@@ -65,8 +60,7 @@ public class Item
      *
      * @return the quantity of the item
      */
-    public int getQuantity()
-    {
+    public int getQuantity() {
         return quantity;
     }
 }  
