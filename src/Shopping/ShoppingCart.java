@@ -1,9 +1,9 @@
 package Shopping;
 
 /**
- * Name:
- * Date:
- * Period:
+ * Name: Nathan Piedad
+ * Date: 10/19/2018
+ * Period: 1
  *
  * Shopping.ShoppingCart.java
  *
@@ -37,13 +37,18 @@ public class ShoppingCart {
      * @param quantity
      */
     public void addToCart(String itemName, double price, int quantity) {
-        //TODO 1b) Complete the addToCart method
-        totalPrice += price;
-        itemCount += quantity;
+        //Complete the addToCart method
+        for (int i = 0; i < cart.length; i++) {
+            if (cart[i] == null) {
+                cart[i] = new Item(itemName, price, quantity);
+            }
+        }
     }
 
-    //TODO 2b) Complete the getter method getTotalPrice. Remember the getter should not print anything.
-
+    //Complete the getter method getTotalPrice. Remember the getter should not print anything.
+    public double getTotalPrice() {
+        return totalPrice;
+    }
 
     public int getCartLength() {
         return cart.length;
