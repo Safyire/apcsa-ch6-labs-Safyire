@@ -38,11 +38,12 @@ public class ShoppingCart {
      */
     public void addToCart(String itemName, double price, int quantity) {
         //Complete the addToCart method
-        for (int i = 0; i < cart.length; i++) {
-            if (cart[i] == null) {
-                cart[i] = new Item(itemName, price, quantity);
-            }
-        }
+        //Create a new Item and place it into the cart at index itemCount
+        cart[itemCount] = new Item(itemName, price, quantity);
+        // increment the itemCount
+        itemCount++;
+        //Update totalPrice
+        totalPrice += price * quantity;
     }
 
     //Complete the getter method getTotalPrice. Remember the getter should not print anything.
@@ -60,22 +61,20 @@ public class ShoppingCart {
      * @return the contents of the cart together with summary information
      */
     public String toString() {
-	NumberFormat fmt = NumberFormat.getCurrencyInstance();
+        NumberFormat fmt = NumberFormat.getCurrencyInstance();
 
-	String contents = "\nShopping Cart\n";
-	contents += String.format("%-15s%10s%10s%10s","Item","Price","Quantity","Total\n");
+        String contents = "\nShopping Cart\n";
+        contents += String.format("%-15s%10s%10s%10s","Item","Price","Quantity","Total\n");
 
+        for (int i = 0; i < itemCount; i++) {
+            //contents += cart[i].toString() + "\n";
+            contents += String.format("%-15s%10.2f%10d%10.2f\n",cart[i].getName(),cart[i].getPrice(), cart[i].getQuantity(),
+                                                                (cart[i].getPrice()*cart[i].getQuantity()));
+        }
 
-	for (int i = 0; i < itemCount; i++) {
-	    //contents += cart[i].toString() + "\n";
-        contents += String.format("%-15s%10.2f%10d%10.2f\n",cart[i].getName(),cart[i].getPrice(), cart[i].getQuantity(),
-                                                            (cart[i].getPrice()*cart[i].getQuantity()));
+        contents += "\nTotal Price: " + fmt.format(totalPrice);
+        contents += "\n";
 
-    }
-
-	contents += "\nTotal Price: " + fmt.format(totalPrice);
-	contents += "\n";
-
-	return contents;
+        return contents;
     }
 }

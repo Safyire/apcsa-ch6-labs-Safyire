@@ -15,7 +15,32 @@ import java.util.Scanner;
 public class ShopTest {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
+        String itemName;
+        double itemCost;
+        int itemQuantity;
+        String isShopping;
+        ShoppingCart shopCart = new ShoppingCart();
 
-        System.out.println("Would you like to go shopping?");
+        System.out.print("Would you like to go shopping? (Y/N) ");
+        isShopping = s.next();
+        while (isShopping.equalsIgnoreCase("y")) {
+            System.out.print("What would you like to buy? ");
+            itemName = s.next();
+
+            System.out.print("How much does it cost? ");
+            itemCost = s.nextDouble();
+
+            System.out.print("How many do you want? ");
+            itemQuantity = s.nextInt();
+
+            shopCart.addToCart(itemName, itemCost, itemQuantity);
+
+            System.out.print("Would you like to continue shopping? (Y/N) ");
+            isShopping = s.next();
+        }
+        System.out.println("Shopping Cart\n" +
+                "Item\t\tPrice\tQuantity\tTotal");
+
     }
+
 }
