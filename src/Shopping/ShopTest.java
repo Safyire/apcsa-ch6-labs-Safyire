@@ -38,9 +38,6 @@ public class ShopTest {
             System.out.print("Would you like to continue shopping? (Y/N) ");
             isShopping = s.next();
         }
-        System.out.println("Shopping Cart\n" +
-                "Item\t\tPrice\tQuantity\tTotal");
-
+        System.out.println(shopCart.toString());
     }
-
 }
