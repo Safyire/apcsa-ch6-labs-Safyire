@@ -1,9 +1,9 @@
 package CardGame;
 
 /**
- * Name:
- * Date:
- * Period:
+ * Name: Nathan Piedad
+ * Date: 10/25/2018
+ * Period: 1
  *
  * CardGame.DeckOfCardsTest.java
  *
@@ -12,8 +12,7 @@ package CardGame;
 
 public class DeckOfCardsTest
 {
-    public static void main (String[] args)
-    {
+    public static void main (String[] args) {
         DeckOfCards myDeckOfCards = new DeckOfCards();
         myDeckOfCards.shuffle(); // put Card objects in random order
 
@@ -33,6 +32,5 @@ public class DeckOfCardsTest
                 myDeckOfCards.dealCard(), myDeckOfCards.dealCard());
 
         }
-
     }
 }

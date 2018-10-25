@@ -1,9 +1,9 @@
 package CardGame;
 
 /**
- * Name:
- * Date:
- * Period:
+ * Name: Nathan Piedad
+ * Date: 10/25/2018
+ * Period: 1
  *
  * CardGame.DeckOfCards.java
  *
@@ -22,8 +22,7 @@ public class DeckOfCards {
     /**
      * Constructor fills a deck array with Card objects.
      */
-    public DeckOfCards()
-    {
+    public DeckOfCards() {
 
         deck = new Card[ NUMBER_OF_CARDS ];
         currentCard = 0; // set currentCard so first Card dealt is deck[0]
@@ -37,8 +36,7 @@ public class DeckOfCards {
     /**
      * Shuffle deck of Cards by randomly switching all cards in deck.
      */
-    public void shuffle()
-    {
+    public void shuffle() {
         for (int first = 0; first < deck.length; first++)
         {
             // select a random number between 0 and 51
@@ -55,14 +53,12 @@ public class DeckOfCards {
      * Deals one card
      * @return the next card in the deck to be dealt
      */
-    public Card dealCard()
-    {
+    public Card dealCard() {
         // determine whether Cards remain to be dealt
         if (currentCard < deck.length)
             return deck [ currentCard++ ];
         else
             return null; // return null to indicate no more cards
     }
-  
 }
 
