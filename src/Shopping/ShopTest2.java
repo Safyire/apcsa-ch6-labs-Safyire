@@ -12,14 +12,14 @@ package Shopping;
 
 import java.util.Scanner;
 
-public class ShopTest {
+public class ShopTest2 {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         String itemName;
         double itemCost;
         int itemQuantity;
         String isShopping;
-        ShoppingCart shopCart = new ShoppingCart();
+        ShoppingCart2 shopCart = new ShoppingCart2();
 
         System.out.print("Would you like to go shopping? (Y/N) ");
         isShopping = s.next();
