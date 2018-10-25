@@ -19,7 +19,7 @@ public class ShopTest {
         double itemCost;
         int itemQuantity;
         String isShopping;
-        ShoppingCart shopCart = new ShoppingCart();
+        ShoppingCart2 shopCart = new ShoppingCart2();
 
         System.out.print("Would you like to go shopping? (Y/N) ");
         isShopping = s.next();
