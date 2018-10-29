@@ -21,6 +21,7 @@ public class DeckOfCardsTest {
         ArrayList<Card> playerHand = new ArrayList<>();
         int dealerHandValue = 0;
         int playerHandValue = 0;
+        String playerState;
 
         deck.shuffle();
 
@@ -55,12 +56,26 @@ public class DeckOfCardsTest {
             System.exit(0);
         }
 
+        //Hit or stay section
+        System.out.print("Would you like to hit or stay? ");
+        playerState = s.next();
+        while (playerState.equalsIgnoreCase("hit")) {
+            playerHand.add(deck.dealCard());
+            playerHandValue += playerHand.get(playerHand.size()-1).getValue();
+            System.out.print("Player's current hand: ");
+            for (int i = 0; i < playerHand.size(); i++) {
+                System.out.print(playerHand.get(i).getFace() + ", ");
+            }
+            System.out.println("(" + playerHandValue + ") ");
+            if (playerHandValue > 21) {
+                System.out.println("Bust!");
+                break;
+            }
+            System.out.print("Would you like to hit or stay? ");
+            playerState = s.next();
+        }
+
         /**
-        1. The dealer deals himself and the player two cards.
-        2. Print only one of the dealer’s cards. The other is face down. If the dealer has blackjack (21) the dealer wins.
-        3. Print the players two cards and the total value. If the player has blackjack (21), he wins.
-        4. Ask the player if he wants to “hit” or “stay”. If he chooses “hit”, deal another card and display the total value.
-        Keep prompting the user until they select “stay” or their total goes over 21, which is a “bust”.
         5. The dealer must continue to deal himself cards UNTIL the total is 17 or over. Once the total is 17 or over, he stops
         dealing cards. Display the total value of the hand or “bust” if the hand is over 21.
         6. Compare the values of the dealer and player’s hand and display the winner.
