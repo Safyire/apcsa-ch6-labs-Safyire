@@ -11,7 +11,6 @@ package CardGame;
  */
 
 public class DeckOfCards {
-
     private Card deck[];
     private int currentCard;
     private final int NUMBER_OF_CARDS = 52;
@@ -24,12 +23,12 @@ public class DeckOfCards {
      */
     public DeckOfCards() {
 
-        deck = new Card[ NUMBER_OF_CARDS ];
+        deck = new Card[NUMBER_OF_CARDS];
         currentCard = 0; // set currentCard so first Card dealt is deck[0]
 
         // populate deck with Card objects
         for (int count = 0; count < deck.length; count ++)
-            deck [ count ] = new Card(faces[count % 13], suits [count / 13]);
+            deck[count] = new Card(faces[count % 13], suits[count / 13]);
 
     } // end DeckOfCards constructor
 
@@ -43,9 +42,9 @@ public class DeckOfCards {
             int second = (int)(Math.random() * 52);
 
             // swap current Card with randomly selected Card
-            Card temp = deck[ first ];
-            deck[ first ] = deck[ second ];
-            deck[ second ] = temp;
+            Card temp = deck[first];
+            deck[first] = deck[ second ];
+            deck[second] = temp;
         }
     } // end method shuffle
 
@@ -56,7 +55,7 @@ public class DeckOfCards {
     public Card dealCard() {
         // determine whether Cards remain to be dealt
         if (currentCard < deck.length)
-            return deck [ currentCard++ ];
+            return deck[currentCard++];
         else
             return null; // return null to indicate no more cards
     }

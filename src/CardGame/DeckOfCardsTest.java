@@ -56,7 +56,7 @@ public class DeckOfCardsTest {
             System.exit(0);
         }
 
-        //Hit or stay section
+        //Player hit or stay section
         System.out.print("Would you like to hit or stay? ");
         playerState = s.next();
         while (playerState.equalsIgnoreCase("hit")) {
@@ -64,9 +64,11 @@ public class DeckOfCardsTest {
             playerHandValue += playerHand.get(playerHand.size()-1).getValue();
             System.out.print("Player's current hand: ");
             for (int i = 0; i < playerHand.size(); i++) {
-                System.out.print(playerHand.get(i).getFace() + ", ");
+                System.out.print(playerHand.get(i).getFace());
+                if (i != playerHand.size()-1)
+                    System.out.print(", ");
             }
-            System.out.println("(" + playerHandValue + ") ");
+            System.out.println(" (" + playerHandValue + ") ");
             if (playerHandValue > 21) {
                 System.out.println("Bust!");
                 break;
@@ -75,10 +77,39 @@ public class DeckOfCardsTest {
             playerState = s.next();
         }
 
-        /**
-        5. The dealer must continue to deal himself cards UNTIL the total is 17 or over. Once the total is 17 or over, he stops
-        dealing cards. Display the total value of the hand or “bust” if the hand is over 21.
-        6. Compare the values of the dealer and player’s hand and display the winner.
-         */
+        //Dealer hit or stay section
+        while (dealerHandValue < 17) {
+            dealerHand.add(deck.dealCard());
+            dealerHandValue += dealerHand.get(dealerHand.size()-1).getValue();
+            if (dealerHandValue >= 17)
+                break;
+        }
+
+        //Judgement section
+        System.out.print("Player's final hand: ");
+        for (int i = 0; i < playerHand.size(); i++) {
+            System.out.print(playerHand.get(i).getFace());
+            if (i != playerHand.size()-1)
+                System.out.print(", ");
+        }
+        System.out.println(" (" + playerHandValue + ") ");
+        System.out.print("Dealer's final hand: ");
+        for (int i = 0; i < dealerHand.size(); i++) {
+            System.out.print(dealerHand.get(i).getFace());
+            if (i != dealerHand.size()-1)
+                System.out.print(", ");
+        }
+        System.out.println(" (" + dealerHandValue + ") ");
+        if (playerHandValue > 21) {
+            System.out.println("Player busted!\nDealer wins!");
+        } else if (dealerHandValue > 21) {
+            System.out.println("Dealer busted!\nPlayer wins!");
+        } else if (playerHandValue > dealerHandValue) {
+            System.out.println("Player wins!");
+        } else if (dealerHandValue > playerHandValue) {
+            System.out.println("Dealer wins!");
+        } else {
+            System.out.println("It's a tie!");
+        }
     }
 }
